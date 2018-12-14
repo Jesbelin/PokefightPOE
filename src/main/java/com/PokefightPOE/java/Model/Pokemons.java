@@ -5,11 +5,12 @@ import java.util.List;
 @Entity
 @Table(name = "pokemons")
 public class Pokemons {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+
+
     @Column(name = "ID")
     private Integer Id;
 
+    @Id
     @Column(name = "NOM_POKEMON_POK")
     private String nomPokemonPok;
 
@@ -59,5 +60,15 @@ public class Pokemons {
 
     public Pokemons(){
 
+    }
+
+    @Override
+    public String toString() {
+        return "Pokemons{" +
+                "Id=" + Id +
+                ", nomPokemonPok='" + nomPokemonPok + '\'' +
+                ", pointDeViePok=" + pointDeViePok +
+                ", attaques=" + attaques +
+                '}';
     }
 }

@@ -6,11 +6,12 @@ import java.util.List;
 @Entity
 @Table(name = "attaque")
 public class Attaque {
-        @Id
-        @GeneratedValue(strategy = GenerationType.AUTO)
+
+
         @Column(name = "ID_AT")
         private Integer IdAt;
 
+        @Id
         @Column(name = "NOM_ATTAQUE_AT") // pas nécessaire si on garde la même mise en forme de nom de colonne
         private String nomAttaqueAt;
 
@@ -47,7 +48,7 @@ public class Attaque {
                 this.puissanceAT = puissanceAT;
         }
 
-        @ManyToMany
+        @ManyToMany (fetch = FetchType.EAGER)
         @JoinTable(name = "connaitre",
                 joinColumns = @JoinColumn(name = "NOM_ATTAQUE_AT"),
                 inverseJoinColumns = @JoinColumn(name = "NOM_POKEMON_POK")
@@ -64,5 +65,15 @@ public class Attaque {
 
         public Attaque() {
 
+        }
+
+        @Override
+        public String toString() {
+                return "Attaque{" +
+                        "IdAt=" + IdAt +
+                        ", nomAttaqueAt='" + nomAttaqueAt + '\'' +
+                        ", puissanceAT=" + puissanceAT +
+                        ", pokemons=" + pokemons.size() +
+                        '}';
         }
 }

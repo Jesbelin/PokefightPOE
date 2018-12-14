@@ -31,8 +31,17 @@ public class JavaApplicationTests {
 		//Then
 		Assert.assertTrue((nbPokemons > 0));*/
 
-		Pokemons p = pokemonsRepository.findByNomPokemonPok("Mew");
+		Pokemons p = pokemonsRepository.findOne("Mew");
+		System.out.println(p);
 		List<Attaque> list = p.getAttaques();
-		System.out.println(list);
+		//System.out.println(list);*/
+
+		/*Attaque a = attaqueRepository.findOne("Seisme");
+		System.out.println(a);
+		List<Pokemons> list = a.getPokemons();*/
+
+		for (int i=0; i < list.size(); i++){
+			System.out.println(list.get(i));
+		}
 	}
 }
