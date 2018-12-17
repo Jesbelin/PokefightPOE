@@ -20,10 +20,10 @@ public class PokemonsServiceTests {
     public void pokemonExist() throws Exception {
 
         //given
-        String nomPokemon = "Mew";
+        String nomPokemonPok = "Mew";
 
         //when
-        Pokemons p = pokemonsService.findByNomPokemonPok(nomPokemon);
+        Pokemons p = pokemonsService.findByNomPokemonPok(nomPokemonPok);
 
 
         //then

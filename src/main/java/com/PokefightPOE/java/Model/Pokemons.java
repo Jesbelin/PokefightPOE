@@ -1,4 +1,6 @@
 package com.PokefightPOE.java.Model;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -47,7 +49,12 @@ public class Pokemons {
         this.pointDeViePok = pointDeViePok;
     }
 
-    @ManyToMany(mappedBy = "pokemons", fetch = FetchType.EAGER)
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = "connaitre",
+            joinColumns = @JoinColumn(name = "NOM_POKEMON_POK"),
+            inverseJoinColumns = @JoinColumn(name = "NOM_ATTAQUE_AT")
+    )
+    @JsonManagedReference
     private List<Attaque> attaques;
 
     public List<Attaque> getAttaques() {
